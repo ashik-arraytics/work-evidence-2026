@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work Evidence 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow report column, summary tiles first, then each chart with its source and a table view. */
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --line: #e2e3e6;
+  --accent: #2a78d6;
+  --shade: #eaf1fb;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121211; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --line: #34342f;
+    --accent: #3987e5; --shade: #1f2a38;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121211; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --line: #34342f;
+  --accent: #3987e5; --shade: #1f2a38;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.5 var(--font-body); }
+main { max-width: 920px; margin: 0 auto; padding: 32px 16px 64px; display: grid; gap: 24px; }
+h1, h2 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 19px; }
+p { margin: 0; }
+.muted { color: var(--ink-2); }
+.small { font-size: 14px; }
+header { display: grid; gap: 6px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 2px; }
+.tile b { font-family: var(--font-display); font-size: 30px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 14px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.chart { position: relative; }
+svg { display: block; width: 100%; height: auto; }
+svg text { fill: var(--ink-2); font: 13px var(--font-body); font-variant-numeric: tabular-nums; }
+svg .val { fill: var(--ink); font-weight: 600; }
+.grid line { stroke: var(--line); }
+.multiples { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.multiples h3 { margin: 0 0 4px; font: 600 15px var(--font-body); }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 13px; padding: 6px 9px; border-radius: 6px; white-space: nowrap; opacity: 0; transition: opacity .1s; }
+details summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; margin-top: 8px; }
+th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+.note { font-size: 14px; color: var(--ink-2); border-left: 3px solid var(--line); padding-left: 10px; }
+.up { color: var(--s6); font-weight: 600; }
+.down { color: #c0392b; font-weight: 600; }
+a { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Ashikur Rahman: work in numbers</h1>
+    <p class="muted">May to October 2026. Every number comes from GitHub (themewinter org) or public WordPress.org data, checked on 31 Oct 2026.</p>
+  </header>
+
+  <section class="tiles" aria-label="Summary">
+    <div class="tile"><b>480</b><span class="muted small">pull requests merged</span></div>
+    <div class="tile"><b>20</b><span class="muted small">company repos worked in</span></div>
+    <div class="tile"><b>2.1x</b><span class="muted small">more merged PRs in Oct than May</span></div>
+    <div class="tile"><b>5x</b><span class="muted small">Booktics + Timetics PRs, Oct vs May</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Merged pull requests per month, by product</h2>
+    <div class="legend" id="pr-legend"></div>
+    <div class="chart" id="pr-chart"></div>
+    <p class="note">From September the Booktics and Timetics share grows fast: 12 PRs in May, 62 in October. That is when I became the main developer of both, while still working on WP Cafe in the same sprints.</p>
+    <details>
+      <summary>Show as table</summary>
+      <div class="tablewrap" id="pr-table"></div>
+    </details>
+    <p class="small muted">Source: GitHub search <code>author:ashik-arraytics org:themewinter is:pr is:merged created:&gt;=2026-05-01</code> returns 480. WP Cafe includes its Pro, Elementor, Divi, Bricks, Oxygen, WCFM and multivendor addons.</p>
+  </section>
+
+  <section class="card">
+    <h2>Typical daily downloads on WordPress.org</h2>
+    <p class="muted small">Median downloads per day in each month, Nov 2025 to Oct 2026. The shaded part is the review period. Each chart has its own scale.</p>
+    <div class="multiples" id="dl"></div>
+    <p class="note">WordPress.org counts updates as downloads too, so a month with more releases also lifts this number. Read it as "how active the plugin is", not as new customers. Using the median day keeps one big release day from skewing a month.</p>
+    <details>
+      <summary>Show as table</summary>
+      <div class="tablewrap" id="dl-table"></div>
+    </details>
+    <p class="small muted">Source: api.wordpress.org/stats/plugin/1.0/downloads.php</p>
+  </section>
+
+  <section class="card">
+    <h2>Active installs over time</h2>
+    <p class="muted small">WordPress.org shows only a rounded "Active installations" number and keeps no history. These past values come from archived copies of each plugin page on the Wayback Machine (web.archive.org).</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Plugin</th><th>Earlier</th><th>Mid 2026</th><th>Today (31 Oct 2026)</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>Booktics</td><td>600+ (Mar 2026)</td><td>700+ (Jun 2026)</td><td>800+</td><td class="up">Growing</td></tr>
+          <tr><td>Timetics</td><td>2,000+ (Apr 2026)</td><td>2,000+ (Jul 2026)</td><td>2,000+</td><td>Steady</td></tr>
+          <tr><td>WP Cafe</td><td>6,000+ (Feb 2026)</td><td>no snapshot</td><td>5,000+</td><td class="down">Down one band</td></tr>
+          <tr><td>Aisentic</td><td>new (Jul 2026)</td><td>n/a</td><td>200+</td><td class="up">New</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script>
+const months = ["May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+const products = ["WP Cafe", "Booktics", "Timetics", "Optiontics", "Aisentic", "Shared + Pointics"];
+const pr = [
+  [40, 7, 5, 11, 2, 0],
+  [36, 6, 5, 7, 4, 0],
+  [41, 6, 7, 2, 0, 0],
+  [30, 10, 11, 14, 4, 4],
+  [34, 23, 27, 3, 1, 2],
+  [54, 37, 25, 0, 9, 13],
+];
+const dlMonths = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+const dl = {
+  "Booktics": [16.5, 17, 23, 27, 17, 25, 20, 17, 19, 30, 36.5, 81],
+  "Timetics": [45, 42, 44, 38, 35, 43.5, 43, 45.5, 52, 43, 65, 83.5],
+  "WP Cafe": [80.5, 127, 100, 85, 89, 106.5, 119, 124, 100, 130, 109, 167.5],
+};
+const NS = "http://www.w3.org/2000/svg";
+const el = (tag, attrs, parent) => {
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+};
+const color = i => `var(--s${i + 1})`;
+
+function tipFor(container) {
+  const t = document.createElement("div");
+  t.className = "tip";
+  container.appendChild(t);
+  return {
+    show(text, evt) {
+      t.textContent = text;
+      const r = container.getBoundingClientRect();
+      t.style.left = Math.min(evt.clientX - r.left + 12, r.width - t.offsetWidth - 4) + "px";
+      t.style.top = (evt.clientY - r.top - 36) + "px";
+      t.style.opacity = 1;
+    },
+    hide() { t.style.opacity = 0; },
+  };
+}
+
+function niceMax(v, step) { return Math.ceil(v / step) * step; }
+
+// Stacked bars: monthly merged PRs by product.
+(function () {
+  const box = document.getElementById("pr-chart");
+  const W = 860, H = 340, m = { t: 24, r: 8, b: 30, l: 40 };
+  const max = niceMax(Math.max(...pr.map(r => r.reduce((a, b) => a + b, 0))), 25);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Stacked bar chart of merged pull requests per month by product" }, box);
+  const y = v => H - m.b - (v / max) * (H - m.t - m.b);
+  const g = el("g", { class: "grid" }, svg);
+  for (let v = 0; v <= max; v += 25) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) }, g);
+    el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = v;
+  }
+  const tip = tipFor(box);
+  const slot = (W - m.l - m.r) / months.length, bw = Math.min(64, slot * 0.55);
+  pr.forEach((row, i) => {
+    const x = m.l + slot * i + (slot - bw) / 2;
+    let acc = 0;
+    const total = row.reduce((a, b) => a + b, 0);
+    const top = row.reduce((last, v, j) => (v ? j : last), 0);
+    row.forEach((v, j) => {
+      if (!v) return;
+      const y0 = y(acc), y1 = y(acc + v);
+      acc += v;
+      const h = Math.max(0, y0 - y1 - 2);
+      const r = j === top ? 4 : 0;
+      const path = r
+        ? `M${x},${y1 + h + 0} V${y1 + r} Q${x},${y1} ${x + r},${y1} H${x + bw - r} Q${x + bw},${y1} ${x + bw},${y1 + r} V${y1 + h} Z`
+        : `M${x},${y1} H${x + bw} V${y1 + h} H${x} Z`;
+      const p = el("path", { d: path, fill: color(j) }, svg);
+      p.addEventListener("mousemove", e => tip.show(`${months[i]}: ${products[j]} ${v} of ${total}`, e));
+      p.addEventListener("mouseleave", tip.hide);
+    });
+    el("text", { x: x + bw / 2, y: y(total) - 7, "text-anchor": "middle", class: "val" }, svg).textContent = total;
+    el("text", { x: x + bw / 2, y: H - 8, "text-anchor": "middle" }, svg).textContent = months[i];
+  });
+  document.getElementById("pr-legend").innerHTML = products
+    .map((p, i) => `<span><i style="background:${color(i)}"></i>${p}</span>`).join("");
+  document.getElementById("pr-table").innerHTML =
+    `<table><thead><tr><th>Month</th>${products.map(p => `<th>${p}</th>`).join("")}<th>Total</th></tr></thead><tbody>` +
+    pr.map((r, i) => `<tr><td>${months[i]} 2026</td>${r.map(v => `<td>${v}</td>`).join("")}<td><b>${r.reduce((a, b) => a + b, 0)}</b></td></tr>`).join("") +
+    `</tbody></table>`;
+})();
+
+// Small multiples: one line per plugin, each on its own scale.
+(function () {
+  const wrap = document.getElementById("dl");
+  Object.entries(dl).forEach(([name, vals]) => {
+    const cell = document.createElement("div");
+    cell.className = "chart";
+    const first = vals[6], last = vals[11];
+    cell.innerHTML = `<h3>${name} <span class="muted small">${first} to ${last} a day (May to Oct)</span></h3>`;
+    wrap.appendChild(cell);
+    const W = 300, H = 170, m = { t: 14, r: 12, b: 24, l: 32 };
+    const step = Math.max(...vals) > 100 ? 50 : 20;
+    const max = niceMax(Math.max(...vals), step);
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `${name} median daily downloads per month` }, cell);
+    const x = i => m.l + (i / (vals.length - 1)) * (W - m.l - m.r);
+    const y = v => H - m.b - (v / max) * (H - m.t - m.b);
+    el("rect", { x: x(6) - 6, y: m.t, width: x(11) - x(6) + 12, height: H - m.t - m.b, fill: "var(--shade)" }, svg);
+    const g = el("g", { class: "grid" }, svg);
+    for (let v = 0; v <= max; v += step) {
+      el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) }, g);
+      el("text", { x: m.l - 6, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = v;
+    }
+    [0, 6, 11].forEach(i => el("text", { x: x(i), y: H - 6, "text-anchor": "middle" }, svg).textContent = dlMonths[i]);
+    const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+    el("polygon", { points: `${x(0)},${y(0)} ${pts} ${x(11)},${y(0)}`, fill: "var(--s1)", opacity: 0.12 }, svg);
+    el("polyline", { points: pts, fill: "none", stroke: "var(--s1)", "stroke-width": 2, "stroke-linejoin": "round" }, svg);
+    el("circle", { cx: x(11), cy: y(last), r: 4.5, fill: "var(--s1)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
+    const tip = tipFor(cell);
+    const slot = (W - m.l - m.r) / (vals.length - 1);
+    vals.forEach((v, i) => {
+      const hit = el("rect", { x: x(i) - slot / 2, y: m.t, width: slot, height: H - m.t - m.b, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", e => tip.show(`${dlMonths[i]}: ${v} a day`, e));
+      hit.addEventListener("mouseleave", tip.hide);
+    });
+  });
+  document.getElementById("dl-table").innerHTML =
+    `<table><thead><tr><th>Plugin</th>${dlMonths.map(mo => `<th>${mo}</th>`).join("")}</tr></thead><tbody>` +
+    Object.entries(dl).map(([n, v]) => `<tr><td>${n}</td>${v.map(x => `<td>${x}</td>`).join("")}</tr>`).join("") +
+    `</tbody></table>`;
+})();
+</script>
+</body>
+</html>
